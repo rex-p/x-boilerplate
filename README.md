@@ -29,6 +29,8 @@ npm install
 npm run start:watch
 ```
 
+After it starts go to GraphQL Playground: http://localhost:4000/graphql
+
 You can start hacking and adding [new stuff fast](https://www.kaviarjs.com/docs/package-x-generator-bundle) with:
 
 ```bash
@@ -43,6 +45,8 @@ cd ui
 npm install
 npm start
 ```
+
+When it starts it will open an endpoint on http://localhost:3000 automatically connected with http://localhost:4000/graphql
 
 # TODO
 
