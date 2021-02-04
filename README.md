@@ -1,12 +1,17 @@
 # X-Boilerplate
 
-This is a boilerplate created using X-Framework powered by [Kaviar](https://kaviarjs.com).
+This is a boilerplate created using [X-Framework](https://www.kaviarjs.com/docs/x-framework-introduction) powered by [Kaviar](https://kaviarjs.com).
 
-Requirements:
+It's a good idea to understand the [foundation principles](https://www.kaviarjs.com/docs/package-core) first. But feel free to hack away and enjoy!
+
+You can already start playing with x for the Command-Line by installing `npm i -g @kaviar/x`. [View the options here](https://www.kaviarjs.com/docs/package-x-generator-bundle)
+
+## Requirements:
 
 - MongoDB installed
+- Node installed
 
-It contains:
+## Features
 
 - Post/Comment/Tag/User relationships modeling a blog
 - CRUD interfaces for Post
@@ -22,6 +27,13 @@ It contains:
 cd api
 npm install
 npm run start:watch
+```
+
+You can start hacking and adding [new stuff fast](https://www.kaviarjs.com/docs/package-x-generator-bundle) with:
+
+```bash
+cd api
+x
 ```
 
 ## Frontend API
