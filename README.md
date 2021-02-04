@@ -31,6 +31,24 @@ npm run start:watch
 
 After it starts go to GraphQL Playground: http://localhost:4000/graphql
 
+You can try your first query in it:
+
+```graphql
+query {
+  postsFind(query: {}) {
+    _id
+    title
+    comments {
+      user {
+        profile {
+          firstName
+        }
+      }
+    }
+  }
+}
+```
+
 You can start hacking and adding [new stuff fast](https://www.kaviarjs.com/docs/package-x-generator-bundle) with:
 
 ```bash
