@@ -31,7 +31,7 @@ export const kernel = new Kernel({
     }),
     new SecurityBundle(),
     new SecurityMongoBundle({
-      // usersCollection: UsersCollection,
+      usersCollection: UsersCollection,
     }),
     new ApolloSecurityBundle(),
     new XBundle({

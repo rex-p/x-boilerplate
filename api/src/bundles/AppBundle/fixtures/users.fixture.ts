@@ -78,6 +78,7 @@ export class UsersFixture {
   }
 
   async shouldRun() {
+    // await this.getCollection().deleteMany({});
     return (await this.getCollection().find().count()) === 0;
   }
 }
