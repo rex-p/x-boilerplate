@@ -38,7 +38,7 @@ export const kernel = new Kernel({
       appUrl: env.APP_URL,
       rootUrl: env.ROOT_URL,
       live: {
-        debug: true,
+        // debug: true,
       },
     }),
     new EmailBundle({
