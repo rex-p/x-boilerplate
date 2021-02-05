@@ -13,6 +13,12 @@ export function PostsList() {
         {
           _id: 1,
           title: 1,
+          user: {
+            profile: {
+              firstName: 1,
+              lastName: 1,
+            },
+          },
         }
       )
       .then((data) => {
@@ -27,7 +33,11 @@ export function PostsList() {
     return (
       <ul>
         {data.map((post) => {
-          return <li>{post.title}</li>;
+          return (
+            <li>
+              {post.title} {post.user.profile?.firstName}
+            </li>
+          );
         })}
       </ul>
     );
