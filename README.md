@@ -52,14 +52,14 @@ query {
 You can start hacking and adding [new stuff fast](https://www.kaviarjs.com/docs/package-x-generator-bundle) with:
 
 ```bash
-cd api
+cd microservices/api
 x
 ```
 
 ## Frontend API
 
 ```bash
-cd ui
+cd microservices/ui
 npm install
 npm start
 ```
