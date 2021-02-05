@@ -1,6 +1,6 @@
 import { use } from "@kaviar/x-ui";
 import { useEffect, useState } from "react";
-import { Post, PostsCollection } from "../../../collections";
+import { Post, PostsCollection } from "../../collections";
 
 export function PostsList() {
   const postsCollection = use(PostsCollection);
@@ -22,7 +22,7 @@ export function PostsList() {
   }, [postsCollection]);
 
   if (!isReady) {
-    return <div>"Loading"</div>;
+    return <div>Loading</div>;
   } else {
     return (
       <ul>

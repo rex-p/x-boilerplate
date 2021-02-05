@@ -37,9 +37,12 @@ export const kernel = new Kernel({
     new XBundle({
       appUrl: env.APP_URL,
       rootUrl: env.ROOT_URL,
+      live: {
+        debug: true,
+      },
     }),
     new EmailBundle({
-      transporter: "nodemailer-test",
+      transporter: "console",
     }),
     new PasswordBundle(),
     new XPasswordBundle(),

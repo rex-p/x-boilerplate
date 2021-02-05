@@ -1,3 +1,4 @@
+import { InvoicesCollection } from "../../../InvoiceBundle/collections/Invoices/Invoices.collection";
 import { CommentsCollection } from "../Comments/Comments.collection";
 import { PostsCollection } from "../Posts/Posts.collection";
 import { IBundleLinkCollectionOption } from "@kaviar/mongo-bundle";
@@ -12,5 +13,10 @@ export const post: IBundleLinkCollectionOption = {
 
 export const comments: IBundleLinkCollectionOption = {
   collection: () => CommentsCollection,
+  inversedBy: "user",
+};
+
+export const invoices: IBundleLinkCollectionOption = {
+  collection: () => InvoicesCollection,
   inversedBy: "user",
 };
