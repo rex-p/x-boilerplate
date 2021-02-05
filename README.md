@@ -8,8 +8,8 @@ You can already start playing with x for the Command-Line by installing `npm i -
 
 ## Requirements:
 
-- MongoDB installed
-- Node installed
+- MongoDB 4+ installed
+- Node 14+ installed
 
 ## Features
 
@@ -25,6 +25,7 @@ You can already start playing with x for the Command-Line by installing `npm i -
 
 ```bash
 cd api
+cp .env.example .env
 npm install
 npm run start:watch
 ```

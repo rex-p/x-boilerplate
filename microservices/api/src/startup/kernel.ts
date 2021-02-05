@@ -38,7 +38,9 @@ export const kernel = new Kernel({
       appUrl: env.APP_URL,
       rootUrl: env.ROOT_URL,
     }),
-    new EmailBundle(),
+    new EmailBundle({
+      transporter: "nodemailer-test",
+    }),
     new PasswordBundle(),
     new XPasswordBundle(),
   ],

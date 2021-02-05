@@ -29,7 +29,7 @@
     "@kaviar/apollo-security-bundle": "^1.0.1",
     "@kaviar/core": "^1.1.1",
     "@kaviar/ejson": "^1.2.2",
-    "@kaviar/email-bundle": "^1.0.2",
+    "@kaviar/email-bundle": "^1.0.3",
     "@kaviar/graphql-bundle": "^1.1.0",
     "@kaviar/logger-bundle": "^1.0.0",
     "@kaviar/mongo-bundle": "^1.0.5",
