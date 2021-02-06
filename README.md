@@ -10,6 +10,7 @@ You can already start playing with x for the Command-Line by installing `npm i -
 
 - MongoDB 4+ installed
 - Node 14+ installed
+- Typescript 4+ installed
 
 ## Features
 
@@ -24,7 +25,7 @@ You can already start playing with x for the Command-Line by installing `npm i -
 ## Backend API
 
 ```bash
-cd api
+cd microservices/api
 cp .env.example .env
 npm install
 npm run start:watch
