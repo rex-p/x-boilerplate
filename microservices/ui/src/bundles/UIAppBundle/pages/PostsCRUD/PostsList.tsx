@@ -1,45 +1,52 @@
-import { use } from "@kaviar/x-ui";
-import { useEffect, useState } from "react";
+import { newSmart, QueryBodyType, use, useSmart } from "@kaviar/x-ui";
+import React, { useEffect, useState } from "react";
 import { Post, PostsCollection } from "../../collections";
+import { ListSmart } from "./ListSmart";
+
+const PostsListContext = React.createContext(null);
+class PostsListSmart extends ListSmart<Post> {
+  static getContext() {
+    return PostsListContext;
+  }
+}
 
 export function PostsList() {
+  console.log("render");
   const postsCollection = use(PostsCollection);
-  const [data, setData] = useState<Post[]>([]);
-  const [isReady, setIsReady] = useState<boolean>(false);
-  useEffect(() => {
-    postsCollection
-      .find(
-        {},
-        {
-          _id: 1,
-          title: 1,
-          user: {
-            profile: {
-              firstName: 1,
-              lastName: 1,
-            },
-          },
-        }
-      )
-      .then((data) => {
-        setData(data);
-        setIsReady(true);
-      });
-  }, [postsCollection]);
+  const [api, Provider] = newSmart(PostsListSmart, {
+    collectionClass: PostsCollection,
+    // should not work without body
+    body: {
+      _id: 1,
+      title: 1,
+      // _id: 1,
+    },
+  });
 
-  if (!isReady) {
+  if (api.state.isLoading) {
     return <div>Loading</div>;
   } else {
     return (
-      <ul>
-        {data.map((post) => {
-          return (
-            <li>
-              {post.title} {post.user.profile?.firstName}
-            </li>
-          );
-        })}
-      </ul>
+      <Provider>
+        <PostsListTable />
+      </Provider>
     );
   }
+}
+
+function PostsListTable() {
+  const api = useSmart(PostsListSmart);
+  const { documents } = api.state;
+
+  return (
+    <ul>
+      {documents.map((post) => {
+        return (
+          <li>
+            {post.title} {post.user?.profile?.firstName}
+          </li>
+        );
+      })}
+    </ul>
+  );
 }
