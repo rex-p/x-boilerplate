@@ -1,26 +1,16 @@
 import { newSmart, QueryBodyType, use, useSmart } from "@kaviar/x-ui";
-import React, { useEffect, useState } from "react";
-import { Post, PostsCollection } from "../../collections";
-import { ListSmart } from "./ListSmart";
-
-const PostsListContext = React.createContext(null);
-class PostsListSmart extends ListSmart<Post> {
-  static getContext() {
-    return PostsListContext;
-  }
-}
+import { useEffect, useState } from "react";
+import ReactPaginate from "react-paginate";
+import { PostsListSmart } from "./PostListSmart";
 
 export function PostsList() {
-  console.log("render");
-  const postsCollection = use(PostsCollection);
   const [api, Provider] = newSmart(PostsListSmart, {
-    collectionClass: PostsCollection,
-    // should not work without body
-    body: {
-      _id: 1,
-      title: 1,
-      // _id: 1,
-    },
+    perPage: 5,
+    // sort: {
+    //   title: 1,
+    //   // Relational Sorting:
+    //   // "user.profile.firstName": -1,
+    // },
   });
 
   if (api.state.isLoading) {
@@ -28,6 +18,21 @@ export function PostsList() {
   } else {
     return (
       <Provider>
+        <input
+          name="Search"
+          placeholder="Search"
+          onKeyUp={(e) => {
+            const value = (e.target as HTMLInputElement).value;
+            api.setFilters({
+              title: {
+                $regex: new RegExp(`${value}`),
+              },
+            });
+            // api.set
+            // api.setF
+          }}
+        />
+
         <PostsListTable />
       </Provider>
     );
@@ -40,6 +45,7 @@ function PostsListTable() {
 
   return (
     <ul>
+      <li>Total: {api.state.totalCount}</li>
       {documents.map((post) => {
         return (
           <li>
@@ -47,6 +53,16 @@ function PostsListTable() {
           </li>
         );
       })}
+      <li>
+        Paginate: Pages: {api.pageCount} | Current: {api.state.currentPage}
+        <ReactPaginate
+          pageCount={api.pageCount}
+          forcePage={api.state.currentPage - 1}
+          onPageChange={({ selected }) => {
+            api.setCurrentPage(selected + 1);
+          }}
+        />
+      </li>
     </ul>
   );
 }
