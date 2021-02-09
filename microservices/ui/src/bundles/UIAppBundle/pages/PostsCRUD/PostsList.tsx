@@ -1,45 +1,62 @@
-import { use } from "@kaviar/x-ui";
+import { newSmart, QueryBodyType, use, useSmart } from "@kaviar/x-ui";
 import { useEffect, useState } from "react";
-import { Post, PostsCollection } from "../../collections";
+import ReactPaginate from "react-paginate";
+import { PostsListSmart } from "./PostListSmart";
 
 export function PostsList() {
-  const postsCollection = use(PostsCollection);
-  const [data, setData] = useState<Post[]>([]);
-  const [isReady, setIsReady] = useState<boolean>(false);
-  useEffect(() => {
-    postsCollection
-      .find(
-        {},
-        {
-          _id: 1,
-          title: 1,
-          user: {
-            profile: {
-              firstName: 1,
-              lastName: 1,
-            },
-          },
-        }
-      )
-      .then((data) => {
-        setData(data);
-        setIsReady(true);
-      });
-  }, [postsCollection]);
+  const [api, Provider] = newSmart(PostsListSmart, {
+    perPage: 5,
+    // sort: {
+    //   title: 1,
+    //   // Relational Sorting:
+    //   // "user.profile.firstName": -1,
+    // },
+  });
 
-  if (!isReady) {
-    return <div>Loading</div>;
-  } else {
-    return (
-      <ul>
-        {data.map((post) => {
-          return (
-            <li>
-              {post.title} {post.user.profile?.firstName}
-            </li>
-          );
-        })}
-      </ul>
-    );
-  }
+  return (
+    <Provider>
+      <div>
+        <input
+          name="Search"
+          placeholder="Search"
+          onKeyUp={(e) => {
+            const value = (e.target as HTMLInputElement).value;
+            api.setFilters({
+              title: new RegExp(`${value}`, "i"),
+            });
+          }}
+        />
+        {api.state.isLoading && <div>Loading</div>}
+        {!api.state.isLoading && <PostsListTable />}
+      </div>
+    </Provider>
+  );
+}
+
+function PostsListTable() {
+  const api = useSmart(PostsListSmart);
+  const { documents } = api.state;
+
+  return (
+    <ul>
+      <li>Total: {api.state.totalCount}</li>
+      {documents.map((post) => {
+        return (
+          <li>
+            {post.title} {post.user?.profile?.firstName}
+          </li>
+        );
+      })}
+      <li>
+        Paginate: Pages: {api.pageCount} | Current: {api.state.currentPage}
+        <ReactPaginate
+          pageCount={api.pageCount}
+          forcePage={api.state.currentPage - 1}
+          onPageChange={({ selected }) => {
+            api.setCurrentPage(selected + 1);
+          }}
+        />
+      </li>
+    </ul>
+  );
 }

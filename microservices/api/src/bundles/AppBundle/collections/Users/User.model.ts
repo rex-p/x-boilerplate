@@ -8,5 +8,14 @@ export class User implements IUser {
   createdAt: Date;
   password: IPasswordAuthenticationStrategy;
   profile: IUserProfile;
+  /**
+   * @reducer
+   * This is read from "password.email" let here for convenience for GraphQL
+   */
   email: string;
+  /**
+   * @reducer
+   * This is going to return permissions that are in APP_DOMAIN
+   */
+  roles: string[];
 }
