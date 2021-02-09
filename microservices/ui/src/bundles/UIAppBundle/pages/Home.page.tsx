@@ -6,8 +6,11 @@ export const HomePage = () => {
   const router = useRouter();
 
   return (
-    <div>
-      <h1>Welcome to KAVIAR</h1>
+    <div className="page-Home">
+      <div className="logo-wrapper">
+        <img src="https://www.kaviarjs.com/img/logo.png" alt="logo" />
+      </div>
+      <h1>Welcome to X-Framework</h1>
       <ul>
         <li>
           <button onClick={() => router.go(POSTS_LIST)}>Posts Page</button>

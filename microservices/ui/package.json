@@ -19,6 +19,7 @@
     "@types/react-router-dom": "^5.1.7",
     "antd": "^4.12.2",
     "graphql": "^15.5.0",
+    "node-sass": "^4.14.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-hook-form": "^6.15.1",
