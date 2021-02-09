@@ -13,30 +13,24 @@ export function PostsList() {
     // },
   });
 
-  if (api.state.isLoading) {
-    return <div>Loading</div>;
-  } else {
-    return (
-      <Provider>
+  return (
+    <Provider>
+      <div>
         <input
           name="Search"
           placeholder="Search"
           onKeyUp={(e) => {
             const value = (e.target as HTMLInputElement).value;
             api.setFilters({
-              title: {
-                $regex: new RegExp(`${value}`),
-              },
+              title: new RegExp(`${value}`, "i"),
             });
-            // api.set
-            // api.setF
           }}
         />
-
-        <PostsListTable />
-      </Provider>
-    );
-  }
+        {api.state.isLoading && <div>Loading</div>}
+        {!api.state.isLoading && <PostsListTable />}
+      </div>
+    </Provider>
+  );
 }
 
 function PostsListTable() {
