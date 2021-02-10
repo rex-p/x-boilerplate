@@ -15,7 +15,7 @@ export class TagsFixture {
 
     const tagsCollection = this.getCollection();
 
-    console.log(`Running tags fixtures.`);
+    console.log(`[fixtures] Running tags fixtures.`);
 
     for (const tagName of TAGS) {
       await tagsCollection.insertOne({
@@ -23,7 +23,7 @@ export class TagsFixture {
       });
     }
 
-    console.log(`Completed tags fixtures.`);
+    console.log(`[fixtures] Completed tags fixtures.`);
   }
 
   getCollection(): TagsCollection {

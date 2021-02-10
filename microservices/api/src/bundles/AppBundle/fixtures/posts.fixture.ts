@@ -21,13 +21,13 @@ export class PostsFixture {
     const postsCollection = this.getPostsCollection();
     const commentsCollection = this.container.get(CommentsCollection);
 
-    console.log(`Running posts fixtures.`);
+    console.log(`[fixtures] Running posts fixtures.`);
 
     const users = await this.container.get(UsersCollection).find({}).toArray();
     const tags = await this.container.get(TagsCollection).find({}).toArray();
 
     if (tags.length === 0) {
-      throw "Cannot load fixtures, no tags found.";
+      throw "[fixtures] Cannot load fixtures, no tags found.";
     }
 
     for (let i = 0; i < COUNT; i++) {
@@ -56,7 +56,7 @@ export class PostsFixture {
       }
     }
 
-    console.log(`Completed posts fixtures.`);
+    console.log(`[fixtures] Completed posts fixtures.`);
   }
 
   getPostsCollection(): PostsCollection {

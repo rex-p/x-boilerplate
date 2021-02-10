@@ -26,7 +26,7 @@ export class UsersFixture {
     const passwordService = this.container.get(PasswordService);
     const permissionsService = this.container.get(PermissionService);
 
-    console.log(`Running users fixtures.`);
+    console.log(`[fixtures] Running users fixtures.`);
 
     for (let i = 0; i < COUNT; i++) {
       const userId = await securityService.createUser({
@@ -43,7 +43,7 @@ export class UsersFixture {
         password: PASSWORD,
       });
 
-      console.log(`Created user-${i}@app.com : ${PASSWORD}`);
+      console.log(`[fixtures] Created user-${i}@app.com : ${PASSWORD}`);
     }
 
     const userId = await securityService.createUser({
@@ -67,10 +67,10 @@ export class UsersFixture {
     });
 
     console.log(
-      `Created admin@app.com : ${PASSWORD} with role: ${Roles.ADMIN}`
+      `[fixtures] Created admin@app.com : ${PASSWORD} with role: ${Roles.ADMIN}`
     );
 
-    console.log(`Completed users fixtures.`);
+    console.log(`[fixtures] Completed users fixtures.`);
   }
 
   getCollection(): UsersCollection {
