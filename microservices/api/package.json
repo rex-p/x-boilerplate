@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "@kaviar/apollo-bundle": "^1.1.3",
-    "@kaviar/apollo-security-bundle": "^1.0.1",
+    "@kaviar/apollo-security-bundle": "^1.0.2",
     "@kaviar/core": "^1.1.1",
     "@kaviar/ejson": "^1.2.2",
     "@kaviar/email-bundle": "^1.0.3",
@@ -36,10 +36,10 @@
     "@kaviar/nova": "^1.4.1",
     "@kaviar/password-bundle": "^1.0.2",
     "@kaviar/security-bundle": "^1.0.2",
-    "@kaviar/security-mongo-bundle": "^1.0.6",
+    "@kaviar/security-mongo-bundle": "^1.0.8",
     "@kaviar/validator-bundle": "^1.0.0",
-    "@kaviar/x-bundle": "^1.3.10",
-    "@kaviar/x-password-bundle": "^1.1.1",
+    "@kaviar/x-bundle": "^1.3.11",
+    "@kaviar/x-password-bundle": "^1.2.0",
     "class-transformer": "^0.3.1",
     "dotenv": "^8.2.0",
     "graphql": "^15.5.0",
@@ -69,7 +69,7 @@
     "jest-junit": "^10.0.0",
     "prettier": "^2.0.5",
     "source-map-support": "^0.5.13",
-    "typescript": "^4.1.0"
+    "typescript": "^4.1.4"
   },
   "kaviar": {
     "type": "microservice"
