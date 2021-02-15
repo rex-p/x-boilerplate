@@ -24,6 +24,14 @@ You can already start playing with x for the Command-Line by installing `npm i -
 
 ## Backend API
 
+Requirements:
+
+- [Node 12+](https://github.com/nvm-sh/nvm#install--update-script)
+- [MongoDB](https://docs.mongodb.com/manual/administration/install-community/)
+- Nodemon (`npm install -g nodemon`)
+
+Set it up the first time:
+
 ```bash
 cd microservices/api
 cp .env.example .env
@@ -67,10 +75,3 @@ npm start
 ```
 
 When it starts it will open an endpoint on http://localhost:3000 automatically connected with http://localhost:4000/graphql
-
-# TODO
-
-- UI Full Authentication Built
-- Admin interface with ANTD
-- Sample CRUD (filters, pagination, forms)
-- Live Data Example
