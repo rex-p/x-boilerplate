@@ -1,7 +1,10 @@
 {
   "name": "x-boilerplate",
   "version": "1.0.0",
-  "scripts": {},
+  "scripts": {
+    "start:api": "cd ./microservices/api && npm run start",
+    "start:ui": "cd ./microservices/ui && npm run start"
+  },
   "dependencies": {},
   "devDependencies": {},
   "kaviar": {
