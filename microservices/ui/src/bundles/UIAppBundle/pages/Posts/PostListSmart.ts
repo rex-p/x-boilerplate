@@ -1,6 +1,7 @@
 import { ListSmart } from "@kaviar/x-ui";
 import React from "react";
-import { Post, PostsCollection } from "../../collections";
+import { PostsCollection } from "../../collections";
+import { Post } from "@root/api.types";
 
 const PostsListContext = React.createContext(null);
 export class PostsListSmart extends ListSmart<Post> {

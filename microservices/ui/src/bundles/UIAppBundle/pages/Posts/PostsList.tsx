@@ -1,5 +1,4 @@
-import { newSmart, QueryBodyType, use, useSmart } from "@kaviar/x-ui";
-import { useEffect, useState } from "react";
+import { newSmart, useSmart } from "@kaviar/x-ui";
 import ReactPaginate from "react-paginate";
 import { PostsListSmart } from "./PostListSmart";
 
@@ -15,7 +14,7 @@ export function PostsList() {
 
   return (
     <Provider>
-      <div className="page-PostsList">
+      <div className="page-posts-list">
         <div>
           <input
             name="Search"
@@ -69,32 +68,12 @@ function PostsListTable() {
         pageClassName="page-item"
         pageLinkClassName="page-link"
         activeClassName="active"
+        marginPagesDisplayed={2}
+        pageRangeDisplayed={3}
         onPageChange={({ selected }) => {
           api.setCurrentPage(selected + 1);
         }}
       />
     </>
-  );
-  return (
-    <ul>
-      <li>Total: {api.state.totalCount}</li>
-      {documents.map((post) => {
-        return (
-          <li>
-            {post.title} {post.user?.profile?.firstName}
-          </li>
-        );
-      })}
-      <li>
-        Paginate: Pages: {api.pageCount} | Current: {api.state.currentPage}
-        <ReactPaginate
-          pageCount={api.pageCount}
-          forcePage={api.state.currentPage - 1}
-          onPageChange={({ selected }) => {
-            api.setCurrentPage(selected + 1);
-          }}
-        />
-      </li>
-    </ul>
   );
 }

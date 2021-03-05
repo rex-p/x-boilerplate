@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Layout } from "../../components";
 import { FriendlyNotice } from "../../components/FriendlyNotice/FriendlyNotice";
 
-export function VerifyEmail({ token }) {
+export function VerifyEmail({ token }: { token: string }) {
   const guardian = useGuardian();
 
   const [isEmailVerified, setIsEmailVerified] = useState(false);

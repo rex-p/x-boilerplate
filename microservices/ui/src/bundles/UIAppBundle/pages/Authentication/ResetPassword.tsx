@@ -1,5 +1,5 @@
 import { useGuardian } from "@kaviar/x-ui";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Layout, FriendlyNotice } from "../../components";
 
@@ -8,7 +8,7 @@ type FormInput = {
   password: string;
 };
 
-export function ResetPassword({ token }) {
+export function ResetPassword({ token }: { token: string }) {
   const guardian = useGuardian();
 
   const [isPasswordReset, setIsPasswordReset] = useState(false);
@@ -16,7 +16,7 @@ export function ResetPassword({ token }) {
 
   const { register, handleSubmit, errors } = useForm<FormInput>();
 
-  const onSubmit = (data) => {
+  const onSubmit = (data: FormInput) => {
     const { email, password } = data;
     guardian
       .resetPassword(email, token, password)

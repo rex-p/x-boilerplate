@@ -11,10 +11,10 @@ type FormInput = {
 export function ForgotPassword() {
   const guardian = useGuardian();
   const [submitError, setSubmitError] = useState(null);
-  const [isCompleted, setIsComplete] = useState(null);
+  const [isCompleted, setIsComplete] = useState(false);
 
   const { register, handleSubmit, errors } = useForm<FormInput>();
-  const onSubmit = (data) => {
+  const onSubmit = (data: FormInput) => {
     guardian
       .forgotPassword(data.email)
       .then(() => {

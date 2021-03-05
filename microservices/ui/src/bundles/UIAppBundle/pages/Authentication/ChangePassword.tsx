@@ -14,7 +14,7 @@ export function ChangePassword() {
   const [submitError, setSubmitError] = useState(null);
   const { register, handleSubmit, errors } = useForm<FormInput>();
 
-  const onSubmit = (data) => {
+  const onSubmit = (data: FormInput) => {
     const { oldPassword, newPassword } = data;
     guardian
       .changePassword(oldPassword, newPassword)

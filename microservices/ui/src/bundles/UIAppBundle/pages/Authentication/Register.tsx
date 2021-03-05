@@ -18,7 +18,7 @@ export function Register() {
   const [submitError, setSubmitError] = useState(null);
   const { register, handleSubmit, errors } = useForm<FormInput>();
 
-  const onSubmit = (data) => {
+  const onSubmit = (data: FormInput) => {
     const { email, password, firstName, lastName } = data;
     guardian
       .register({

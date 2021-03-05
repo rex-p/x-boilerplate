@@ -9,7 +9,7 @@ export const HomePage = () => {
 
   return (
     <Layout>
-      <div className="page-Home">
+      <div className="page-home">
         <div className="logo-wrapper">
           <img src="https://www.kaviarjs.com/img/logo.png" alt="logo" />
         </div>

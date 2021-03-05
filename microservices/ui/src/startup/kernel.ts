@@ -1,7 +1,6 @@
 import { Kernel } from "@kaviar/core";
 import { XUIBundle } from "@kaviar/x-ui";
 import { UIAppBundle } from "../bundles/UIAppBundle/UIAppBundle";
-import { ValidatorBundle } from "@kaviar/validator-bundle";
 
 // All UI bundles need to be prefixed with UI
 // All X-way bundles have the first prefix X
@@ -14,7 +13,6 @@ export const kernel = new Kernel({
         uri: process.env.REACT_APP_GRAPHQL_URI,
       },
     }),
-    new ValidatorBundle(),
     new UIAppBundle(),
   ],
 });

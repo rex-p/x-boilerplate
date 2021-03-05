@@ -2,7 +2,7 @@ import { useGuardian, useRouter } from "@kaviar/x-ui";
 import * as Routes from "../../routes";
 import { Link } from "react-router-dom";
 
-export function Layout({ children }) {
+export function Layout({ children }: any) {
   const guardian = useGuardian();
   const router = useRouter();
 

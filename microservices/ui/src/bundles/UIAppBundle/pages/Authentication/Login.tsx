@@ -15,7 +15,7 @@ export function Login() {
   const router = useRouter();
   const [loginError, setLoginError] = useState(null);
   const { register, handleSubmit, errors } = useForm<FormInput>();
-  const onSubmit = (data) => {
+  const onSubmit = (data: FormInput) => {
     const { email, password } = data;
     guardian
       .login(email, password)

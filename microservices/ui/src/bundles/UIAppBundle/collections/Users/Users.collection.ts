@@ -1,5 +1,5 @@
 import { Collection } from "@kaviar/x-ui";
-import { User } from "./User.model";
+import { User } from "@root/api.types";
 
 export class UsersCollection extends Collection<User> {
   getName() {
