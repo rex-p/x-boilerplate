@@ -1,10 +1,10 @@
 import { Collection } from "@kaviar/x-ui";
-import { Post } from "@root/api.types";
+import { Comment } from "@root/api.types";
 import { ObjectId } from "@kaviar/ejson";
 
-export class PostsCollection extends Collection<Post> {
+export class CommentsCollection extends Collection<Comment> {
   getName() {
-    return "posts";
+    return "comments";
   }
 
   getTransformMap() {

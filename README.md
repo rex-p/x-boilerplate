@@ -24,6 +24,10 @@ You can already start playing with x for the Command-Line by installing `npm i -
 
 # Start
 
+For the initial setup just run: scripts/setup.sh. If you run this you don't have to run the setup instructions below.
+
+From root folder, you can start both microservices like: `npm run start:api` and `npm run start:ui`.
+
 ## Backend API
 
 Set it up the first time:
