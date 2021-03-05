@@ -22,6 +22,8 @@ export function PostsListLive() {
           {posts.map((post) => {
             return (
               <li key={post._id.toString()}>
+                {post._id}
+                <br />
                 {post.title}{" "}
                 <button onClick={() => postsCollection.deleteOne(post._id)}>
                   Delete
