@@ -5,7 +5,10 @@ export function PostsListLive() {
   const postsCollection = use(PostsCollection);
   const { data: posts, isLoading } = useLiveData(
     PostsCollection,
-    {},
+    {
+      filters: {},
+      options: {},
+    },
     {
       _id: 1,
       title: 1,
@@ -22,7 +25,7 @@ export function PostsListLive() {
           {posts.map((post) => {
             return (
               <li key={post._id.toString()}>
-                {post._id}
+                {post._id.toString()}
                 <br />
                 {post.title}{" "}
                 <button onClick={() => postsCollection.deleteOne(post._id)}>
