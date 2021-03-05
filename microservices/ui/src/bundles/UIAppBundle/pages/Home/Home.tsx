@@ -21,6 +21,23 @@ export const HomePage = () => {
           </tr>
           <tr>
             <td>
+              <Link
+                to={process.env.REACT_APP_GRAPHQL_URI as string}
+                target="_blank"
+              >
+                GraphQL Playground
+              </Link>
+            </td>
+            <td>
+              Start toying around with the API. If you want to see how it looks{" "}
+              <a href="/schema.html" target="_blank">
+                like check the schema
+              </a>
+              .
+            </td>
+          </tr>
+          <tr>
+            <td>
               <Link to={router.path(Routes.POSTS_LIST)}>Posts Page</Link>
             </td>
             <td>

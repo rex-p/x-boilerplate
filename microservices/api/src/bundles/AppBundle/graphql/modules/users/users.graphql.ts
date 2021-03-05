@@ -1,8 +1,8 @@
 export default /* GraphQL */ `
   type Query {
-    usersFindOne(query: QueryInput!): User
+    usersFindOne(query: QueryInput): User
     usersFind(query: QueryInput): [User]!
-    usersCount(filters: EJSON!): Int!
+    usersCount(filters: QueryInput): Int!
   }
 
   # type Mutation {

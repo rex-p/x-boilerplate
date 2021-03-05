@@ -1,16 +1,17 @@
-# X-Boilerplate
+# X-Boilerplate by Kaviar
 
 This is a boilerplate created using [X-Framework](https://www.kaviarjs.com/docs/x-framework-introduction) powered by [Kaviar](https://kaviarjs.com).
 
 It's a good idea to understand the [foundation principles](https://www.kaviarjs.com/docs/package-core) first. But feel free to hack away and enjoy!
+
+There are 2 microservices `api` (which is the GraphQL Server) and `ui` (a create react app with typescript and webpack extension capabilities).
 
 You can already start playing with x for the Command-Line by installing `npm i -g @kaviar/x`. [View the options here](https://www.kaviarjs.com/docs/package-x-generator-bundle)
 
 ## Requirements:
 
 - MongoDB 4+ installed
-- Node 14+ installed
-- Typescript 4+ installed
+- Node 12+ installed
 
 ## Features
 

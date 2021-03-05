@@ -1,8 +1,8 @@
 export default /* GraphQL */ `
   type Query {
-    postsFindOne(query: QueryInput!): Post
-    postsFind(query: QueryInput!): [Post]!
-    postsCount(filters: EJSON!): Int!
+    postsFindOne(query: QueryInput): Post
+    postsFind(query: QueryInput): [Post]!
+    postsCount(query: QueryInput): Int!
   }
 
   type Mutation {
