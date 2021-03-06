@@ -1,4 +1,4 @@
-export type Maybe<T> = T | null;
+export type Maybe<T> = T;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
@@ -80,6 +80,7 @@ export type User = {
   _id: Scalars['ObjectId'];
   profile?: Maybe<UserProfile>;
   email?: Maybe<Scalars['String']>;
+  fullName?: Maybe<Scalars['String']>;
   roles?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
@@ -103,22 +104,22 @@ export type Query = {
 
 
 export type QueryPostsFindOneArgs = {
-  query: QueryInput;
+  query?: Maybe<QueryInput>;
 };
 
 
 export type QueryPostsFindArgs = {
-  query: QueryInput;
+  query?: Maybe<QueryInput>;
 };
 
 
 export type QueryPostsCountArgs = {
-  filters: Scalars['EJSON'];
+  query?: Maybe<QueryInput>;
 };
 
 
 export type QueryUsersFindOneArgs = {
-  query: QueryInput;
+  query?: Maybe<QueryInput>;
 };
 
 
@@ -128,7 +129,7 @@ export type QueryUsersFindArgs = {
 
 
 export type QueryUsersCountArgs = {
-  filters: Scalars['EJSON'];
+  filters?: Maybe<QueryInput>;
 };
 
 export type Mutation = {

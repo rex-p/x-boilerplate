@@ -15,6 +15,18 @@ export const email: IReducerOption = {
   },
 };
 
+export const fullName: IReducerOption = {
+  dependency: {
+    profile: {
+      firstName: 1,
+      lastName: 1,
+    },
+  },
+  reduce(user) {
+    return user.profile?.firstName + " " + user.profile?.lastName;
+  },
+};
+
 export const roles: IReducerOption = {
   dependency: {
     _id: 1,

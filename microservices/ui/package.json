@@ -7,7 +7,7 @@
     "@apollo/client": "^3.3.11",
     "@kaviar/core": "^1.1.6",
     "@kaviar/smart": "^1.2.5",
-    "@kaviar/x-ui": "^1.4.7",
+    "@kaviar/x-ui": "^1.4.8",
     "@kaviar/x-ui-admin": "^1.1.4",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.2.5",

@@ -3,6 +3,7 @@ export default /* GraphQL */ `
     _id: ObjectId!
     profile: UserProfile
     email: String
+    fullName: String
     roles: [String]
   }
 
