@@ -76,7 +76,7 @@ npm start
 
 When it starts it will open an endpoint on http://localhost:3000 automatically connected with http://localhost:4000/graphql.
 
-When starting the first time we create some dummy data, meaning you can login with the following credentials on http://localhost:3000/login:
+When starting the first time we create some dummy data, meaning you can login with the following credentials on http://localhost:3000/login
 
 ```
 admin@app.com : 123456
