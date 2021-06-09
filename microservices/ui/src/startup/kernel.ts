@@ -10,7 +10,7 @@ export const kernel = new Kernel({
       graphql: {
         // ApolloClient Options
         // https://www.apollographql.com/docs/react/api/core/ApolloClient/#ApolloClientOptions
-        uri: process.env.REACT_APP_GRAPHQL_URI,
+        uri: process.env.API_URL,
       },
     }),
     new UIAppBundle(),
