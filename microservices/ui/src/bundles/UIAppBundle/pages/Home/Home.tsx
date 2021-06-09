@@ -29,9 +29,9 @@ export const HomePage = () => {
               </a>
             </td>
             <td>
-              Start toying around with the API. If you want to see how it looks{" "}
-              <a href="/schema.html" target="_blank">
-                like check the schema
+              Start toying around with the API (make sure it is started).
+              <a href="/public/schema.html" target="_blank">
+                Check the schema
               </a>
               .
             </td>
