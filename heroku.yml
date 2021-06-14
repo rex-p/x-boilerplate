@@ -1,0 +1,5 @@
+run:
+  api:
+    - cd microservices/api
+    - npm install
+    - node microservices/api/dist/startup/index.js
