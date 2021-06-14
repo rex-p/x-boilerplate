@@ -36,7 +36,7 @@ Set it up the first time:
 cd microservices/api
 cp .env.example .env
 npm install
-npm run start
+npm run start:dev
 ```
 
 After it starts go to GraphQL Playground: http://localhost:4000/graphql
@@ -71,7 +71,7 @@ x
 ```bash
 cd microservices/ui
 npm install
-npm start
+npm run start:dev
 ```
 
 When it starts it will open an endpoint on http://localhost:3000 automatically connected with http://localhost:4000/graphql.

@@ -5,9 +5,10 @@
   "private": true,
   "main": "dist/startup/index.js",
   "scripts": {
-    "compile": "tsc",
+    "build": "tsc",
     "compile:watch": "tsc -w",
-    "start": "npm run compile; tsc -w --preserveWatchOutput & nodemon -q -w dist dist/src/index.js",
+    "start": "node dist/src/index.js",
+    "start:dev": "npm run compile; tsc -w --preserveWatchOutput & nodemon -q -w dist dist/src/index.js",
     "watch": "tsc -w",
     "pretest": "npm run compile",
     "lint": "eslint './src/**/*.ts'",
