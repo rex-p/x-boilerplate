@@ -104,13 +104,15 @@ heroku buildpacks:add -a web-test heroku/nodejs
 heroku buildpacks:add -a web-test https://github.com/lstoll/heroku-buildpack-monorepo -i 1
 ```
 
-```
-heroku config:set -a api-test APP_BASE=microservices/api
+```bash
+heroku config:set -a api-test APP_BASE="microservices/api"
 heroku config:set -a api-test APP_URL="https://web-test.heroku.com/"
 heroku config:set -a api-test ROOT_URL="https://api-test.heroku.com/"
-heroku config:set -a api-test MONGO_URL="mongodb+srv://kaviar:.p2m2SW.E9r4u$s@kaviar-test.3ixcw.mongodb.net/x-boilerplate?retryWrites=true&w=majority"
 
-heroku config:set -a web-test APP_BASE=microservices/ui
+# Get this from MongoDB Atlas. Create a "Free Tier Cluster" and go to "Connect" and allow all ips. The URL looks like:
+heroku config:set -a api-test MONGO_URL="mongodb+srv://kaviar:XXXXXXXX@kaviar-test.3ixcw.mongodb.net/x-boilerplate?retryWrites=true&w=majority"
+
+heroku config:set -a web-test APP_BASE="microservices/ui"
 ```
 
 ```
