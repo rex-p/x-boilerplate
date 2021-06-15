@@ -7,7 +7,7 @@
   "scripts": {
     "build": "tsc",
     "compile:watch": "tsc -w",
-    "start": "node dist/src/index.js",
+    "start": "node dist/src/startup/index.js",
     "start:dev": "npm run compile; tsc -w --preserveWatchOutput & nodemon -q -w dist dist/src/index.js",
     "watch": "tsc -w",
     "pretest": "npm run compile",

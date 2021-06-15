@@ -84,3 +84,40 @@ user-1@app.com : 123456
 user-2@app.com : 123456
 user-3@app.com : 123456
 ```
+
+## Deployment
+
+1. Create Heroku Account
+2. Install heroku `npm i -g heroku`. And then run `heroku login`
+3. Might need other dependencies if `heroku buildpacks` is not working: `npm i -g heroku/buildpack-registry true-myth valid-url`
+
+```bash
+# Just create some unique ids
+heroku create api-test
+heroku create web-test
+```
+
+```
+heroku buildpacks:add -a api-test heroku/nodejs
+heroku buildpacks:add -a api-test https://github.com/lstoll/heroku-buildpack-monorepo -i 1
+heroku buildpacks:add -a web-test heroku/nodejs
+heroku buildpacks:add -a web-test https://github.com/lstoll/heroku-buildpack-monorepo -i 1
+```
+
+```
+heroku config:set -a api-test APP_BASE=microservices/api
+heroku config:set -a api-test APP_URL="https://web-test.heroku.com/"
+heroku config:set -a api-test ROOT_URL="https://api-test.heroku.com/"
+heroku config:set -a api-test MONGO_URL="mongodb+srv://kaviar:.p2m2SW.E9r4u$s@kaviar-test.3ixcw.mongodb.net/x-boilerplate?retryWrites=true&w=majority"
+
+heroku config:set -a web-test APP_BASE=microservices/ui
+```
+
+```
+git remote add heroku-api https://git.heroku.com/api-02092020.git
+git remote add heroku-web-client https://git.heroku.com/web-client-02092020.git
+```
+
+```
+heroku config:set -a web-
+```
