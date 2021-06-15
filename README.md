@@ -135,13 +135,10 @@ heroku buildpacks:add -a web-test https://github.com/lstoll/heroku-buildpack-mon
 
 ```bash
 heroku config:set -a web-test APP_BASE="microservices/ui"
-heroku config:set -a web-test API_URL="https://web-test.herokuapp.com/graphql"
+heroku config:set -a web-test API_URL="https://api-test.herokuapp.com/graphql"
 ```
 
 ```
 git remote add heroku-web https://git.heroku.com/web-test.git
-```
-
-```
-heroku config:set -a web-
+git push heroku-web master
 ```
