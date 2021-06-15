@@ -25,6 +25,12 @@ export const kernel = new Kernel({
       port: env.ROOT_PORT,
       url: env.ROOT_URL,
       enableSubscriptions: true,
+      // Theoretically you shouldn't allow this in production
+      // This is just here so when you deploy you could make requests
+      apollo: {
+        playground: true,
+        introspection: true,
+      },
     }),
     new MongoBundle({
       uri: env.MONGO_URL,
