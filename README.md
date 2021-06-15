@@ -87,7 +87,7 @@ user-3@app.com : 123456
 
 ## Deployment
 
-1. Create Heroku Account
+1. Create Heroku Account, MongoDB Atlas account
 2. Install heroku `npm i -g heroku`. And then run `heroku login`
 3. Might need other dependencies if `heroku buildpacks` is not working: `npm i -g heroku/buildpack-registry true-myth valid-url`
 
