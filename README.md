@@ -91,33 +91,55 @@ user-3@app.com : 123456
 2. Install heroku `npm i -g heroku`. And then run `heroku login`
 3. Might need other dependencies if `heroku buildpacks` is not working: `npm i -g heroku/buildpack-registry true-myth valid-url`
 
+### Deploying the API
+
+We typically structure our microservices under `microservices` folder, this is why we would need `heroku-buildpack-monorepo` which allows an environment variable `APP_BASE` to control this.
+
+We assume your projects will be called `api-test` and `web-test`
+
 ```bash
 # Just create some unique ids, and select the region "eu" or "us"
 heroku create api-test --region eu
-heroku create web-test --region eu
-```
-
-```
 heroku buildpacks:add -a api-test heroku/nodejs
 heroku buildpacks:add -a api-test https://github.com/lstoll/heroku-buildpack-monorepo -i 1
+
+heroku config:set -a api-test APP_BASE="microservices/api"
+heroku config:set -a api-test APP_URL="https://web-test.herokuapp.com"
+heroku config:set -a api-test ROOT_URL="https://api-test.herokuapp.com"
+
+# Get this from MongoDB Atlas. Create a "Free Tier Cluster" and go to "Connect" and allow all ips. The URL looks like:
+heroku config:set -a api-test MONGO_URL="mongodb+srv://kaviar:XXXXXX@kaviar-test.3ixcw.mongodb.net/x-boilerplate?retryWrites=true&w=majority"
+```
+
+Actual deployment:
+
+```bash
+git remote add heroku-api https://git.heroku.com/api-test.git
+git push heroku-api master # or main, whichever branch you use
+```
+
+View the logs:
+
+```bash
+heroku logs --app api-test --tail
+```
+
+### Deploying the CLIENT
+
+```
+
+heroku create web-test --region eu
 heroku buildpacks:add -a web-test heroku/nodejs
 heroku buildpacks:add -a web-test https://github.com/lstoll/heroku-buildpack-monorepo -i 1
 ```
 
 ```bash
-heroku config:set -a api-test APP_BASE="microservices/api"
-heroku config:set -a api-test APP_URL="https://web-test.heroku.com/"
-heroku config:set -a api-test ROOT_URL="https://api-test.heroku.com/"
-
-# Get this from MongoDB Atlas. Create a "Free Tier Cluster" and go to "Connect" and allow all ips. The URL looks like:
-heroku config:set -a api-test MONGO_URL="mongodb+srv://kaviar:XXXXXXXX@kaviar-test.3ixcw.mongodb.net/x-boilerplate?retryWrites=true&w=majority"
-
 heroku config:set -a web-test APP_BASE="microservices/ui"
+heroku config:set -a web-test API_URL="https://web-test.herokuapp.com/graphql"
 ```
 
 ```
-git remote add heroku-api https://git.heroku.com/api-02092020.git
-git remote add heroku-web-client https://git.heroku.com/web-client-02092020.git
+git remote add heroku-web https://git.heroku.com/web-test.git
 ```
 
 ```
