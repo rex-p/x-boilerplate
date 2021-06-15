@@ -1,9 +1,11 @@
-const express = require("express");
-const app = express();
-const port = process.env.PORT || 3000;
+var path = require("path");
+var express = require("express");
 
-app.use(express.static("dist"));
+var app = express();
 
-app.listen(port, () => {
-  console.log(`Listening on port ${port}`);
+app.use(express.static(path.join(__dirname, "dist")));
+app.set("port", process.env.PORT || 8080);
+
+var server = app.listen(app.get("port"), function () {
+  console.log("Listening on port ", server.address().port);
 });
