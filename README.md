@@ -92,9 +92,9 @@ user-3@app.com : 123456
 3. Might need other dependencies if `heroku buildpacks` is not working: `npm i -g heroku/buildpack-registry true-myth valid-url`
 
 ```bash
-# Just create some unique ids
-heroku create api-test
-heroku create web-test
+# Just create some unique ids, and select the region "eu" or "us"
+heroku create api-test --region eu
+heroku create web-test --region eu
 ```
 
 ```
