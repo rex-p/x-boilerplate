@@ -103,11 +103,12 @@ heroku create api-test --region eu
 heroku buildpacks:add -a api-test heroku/nodejs
 heroku buildpacks:add -a api-test https://github.com/lstoll/heroku-buildpack-monorepo -i 1
 
+# Do not rely on .env or commit it. Use heroku's own environment config variables
 heroku config:set -a api-test APP_BASE="microservices/api"
 heroku config:set -a api-test APP_URL="https://web-test.herokuapp.com"
 heroku config:set -a api-test ROOT_URL="https://api-test.herokuapp.com"
 
-# Get this from MongoDB Atlas. Create a "Free Tier Cluster" and go to "Connect" and allow all ips. The URL looks like:
+# Get this from MongoDB Atlas. Create a "Free Tier Cluster" and go to "Connect" and specify in security: Allow all IPs. The URL looks like:
 heroku config:set -a api-test MONGO_URL="mongodb+srv://kaviar:XXXXXX@kaviar-test.3ixcw.mongodb.net/x-boilerplate?retryWrites=true&w=majority"
 ```
 
