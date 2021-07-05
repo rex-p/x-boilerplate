@@ -8,7 +8,7 @@
     "build": "tsc",
     "compile:watch": "tsc -w",
     "start": "node dist/startup/index.js",
-    "start:dev": "nodemon --watch \"src/**\" --ext \"ts,tsx\" --ignore \"src/**/__tests__/**/*.ts\" --exec \"ts-node src/startup/index.ts\"",
+    "start:dev": "tsnd --respawn src/startup/index.ts",
     "watch": "tsc -w",
     "pretest": "npm run build",
     "lint": "eslint './src/**/*.ts'",
@@ -72,6 +72,7 @@
     "prettier": "^2.0.5",
     "source-map-support": "^0.5.13",
     "ts-jest": "^27.0.3",
+    "ts-node-dev": "^1.1.8",
     "typescript": "^4.2.3"
   },
   "kaviar": {
