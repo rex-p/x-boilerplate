@@ -78,6 +78,9 @@ export class UsersFixture {
   }
 
   async shouldRun() {
+    if (process.env.NODE_ENV === "test") {
+      return false;
+    }
     // await this.getCollection().deleteMany({});
     return (await this.getCollection().find().count()) === 0;
   }

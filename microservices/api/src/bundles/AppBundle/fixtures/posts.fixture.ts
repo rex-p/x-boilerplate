@@ -68,6 +68,9 @@ export class PostsFixture {
   }
 
   async shouldRun() {
+    if (process.env.NODE_ENV === "test") {
+      return false;
+    }
     // await this.getPostsCollection().deleteMany({});
     // await this.getCommentsCollection().deleteMany({});
     return (await this.getPostsCollection().find().count()) === 0;

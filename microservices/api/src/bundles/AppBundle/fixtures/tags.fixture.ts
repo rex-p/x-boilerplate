@@ -31,7 +31,10 @@ export class TagsFixture {
   }
 
   async shouldRun() {
-    // await this.getCollection().deleteMany({});
+    if (process.env.NODE_ENV === "test") {
+      return false;
+    }
+
     return (await this.getCollection().find().count()) === 0;
   }
 }

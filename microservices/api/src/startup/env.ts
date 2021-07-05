@@ -2,17 +2,19 @@ import { config } from "dotenv";
 import { KernelContext } from "@kaviar/core";
 import * as fs from "fs";
 
-const result = config();
+const path = process.env.NODE_ENV === "test" ? ".env.test" : ".env";
 
-if (fs.existsSync(".env")) {
-  const result = config();
+if (fs.existsSync(path)) {
+  const result = config({
+    path,
+  });
 
   if (result.error) {
     console.error(result.error);
     process.exit(0);
   }
 } else {
-  console.warn("There is no .env variable configured");
+  console.warn(`There is no "${path}" variable configured`);
 }
 
 export default {
