@@ -19,7 +19,7 @@
   "license": "ISC",
   "dependencies": {
     "@apollo/client": "^3.3.11",
-    "@kaviar/core": "^1.1.6",
+    "@kaviar/core": "^1.2.4",
     "@kaviar/ejson": "^1.2.7",
     "@kaviar/smart": "^1.2.4",
     "@kaviar/x-ui": "^1.4.4",
