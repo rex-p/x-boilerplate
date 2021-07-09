@@ -8,6 +8,7 @@ import {
 import { UsersCollection } from "../collections/Users/Users.collection";
 import { APP_DOMAIN } from "../constants";
 import { Roles } from "../collections/Users/enums/Roles.enum";
+import { roles } from '../collections/Users/Users.reducers';
 
 const COUNT = 5;
 const PASSWORD = "123456";
@@ -51,6 +52,7 @@ export class UsersFixture {
         firstName: `Admin`,
         lastName: `Smith`,
       },
+      roles: [Roles.ADMIN]
     });
 
     await passwordService.attach(userId, {
@@ -58,12 +60,6 @@ export class UsersFixture {
       username: `admin@app.com`,
       isEmailVerified: true,
       password: PASSWORD,
-    });
-
-    await permissionsService.add({
-      domain: APP_DOMAIN,
-      userId,
-      permission: Roles.ADMIN,
     });
 
     console.log(

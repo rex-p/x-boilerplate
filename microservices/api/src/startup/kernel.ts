@@ -11,7 +11,7 @@ import { XPasswordBundle } from "@kaviar/x-password-bundle";
 import { EmailBundle } from "@kaviar/email-bundle";
 import { ValidatorBundle } from "@kaviar/validator-bundle";
 import env from "./env";
-import { UsersCollection } from "../bundles/AppBundle/collections";
+import { UsersCollection, PermissionTree } from "../bundles/AppBundle";
 
 export const kernel = new Kernel({
   parameters: {
@@ -35,7 +35,9 @@ export const kernel = new Kernel({
     new MongoBundle({
       uri: env.MONGO_URL,
     }),
-    new SecurityBundle(),
+    new SecurityBundle({
+      "permissionTree": PermissionTree
+    }),
     new SecurityMongoBundle({
       usersCollection: UsersCollection,
     }),

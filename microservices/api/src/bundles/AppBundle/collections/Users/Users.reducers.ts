@@ -30,16 +30,24 @@ export const fullName: IReducerOption = {
 export const roles: IReducerOption = {
   dependency: {
     _id: 1,
+    roles: 1,
   },
   async reduce(user, { context }) {
+    const roles = user.roles || [];
+
     const permissionService: PermissionService = context.container.get(
       PermissionService
     );
+    // The idea here is that you can have roles stored as an array of strings at user level
+    // Or you can have them stored in the permissioning collection
+    // Most of the times you don't need complex permissioning logic, so roles at User level suffice
     const permissions = await permissionService.findPermissions({
       domain: APP_DOMAIN,
       userId: user._id,
     });
 
-    return permissions.map((permission) => permission.permission);
+    const result = [...roles, ...permissions.map((permission) => permission.permission)];
+
+    return result;
   },
 };
