@@ -7,6 +7,7 @@ import * as fixtures from "./fixtures";
 import graphqlModule from "./graphql";
 import { PassportService } from "@kaviar/apollo-security-bundle";
 import { FacebookAuthenticator } from "./services/security/FacebookAuthenticator";
+import { AwsCognitoAuthenticator } from "./services/security/AwsCognitoAuthenticator";
 
 export class AppBundle extends BaseBundle<any> {
   async prepare() {
@@ -22,5 +23,6 @@ export class AppBundle extends BaseBundle<any> {
   async init() {
     const passportService = this.container.get(PassportService);
     passportService.register(FacebookAuthenticator);
+    passportService.register(AwsCognitoAuthenticator);
   }
 }
