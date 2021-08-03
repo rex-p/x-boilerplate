@@ -39,6 +39,7 @@
     "@kaviar/validator-bundle": "^1.0.0",
     "@kaviar/x-bundle": "^1.4.0",
     "@kaviar/x-password-bundle": "^1.2.1",
+    "amazon-cognito-identity-js": "^3.2.1",
     "class-transformer": "^0.3.1",
     "dotenv": "^8.2.0",
     "graphql": "^15.5.0",
@@ -48,8 +49,10 @@
     "mongodb": "3.6.3",
     "passport": "^0.4.1",
     "passport-facebook": "^3.0.0",
+    "passport-local": "^1.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "x-boilerplate": "file:../..",
     "yup": "^0.29.2"
   },
   "devDependencies": {
