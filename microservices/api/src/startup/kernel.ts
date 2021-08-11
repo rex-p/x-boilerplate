@@ -2,7 +2,7 @@ import { Kernel } from "@kaviar/core";
 import { ApolloBundle } from "@kaviar/apollo-bundle";
 import { MongoBundle } from "@kaviar/mongo-bundle";
 import { SecurityBundle } from "@kaviar/security-bundle";
-import { SecurityMongoBundle } from "@kaviar/security-mongo-bundle";
+import { SecurityMongoBundle } from "@kaviar/security-cognito-bundle";
 import { LoggerBundle } from "@kaviar/logger-bundle";
 import { XBundle } from "@kaviar/x-bundle";
 import { ApolloSecurityBundle } from "@kaviar/apollo-security-bundle";

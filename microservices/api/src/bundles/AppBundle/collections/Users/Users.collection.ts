@@ -1,5 +1,5 @@
 import { Collection, Behaviors } from "@kaviar/mongo-bundle";
-import { UsersCollection as BaseCollection } from "@kaviar/security-mongo-bundle";
+import { UsersCollection as BaseCollection } from "@kaviar/security-cognito-bundle";
 import * as links from "./Users.links";
 import * as reducers from "./Users.reducers";
 import { User } from "./User.model";
