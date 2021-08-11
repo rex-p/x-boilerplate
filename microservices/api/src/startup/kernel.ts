@@ -40,6 +40,8 @@ export const kernel = new Kernel({
     }),
     new SecurityMongoBundle({
       usersCollection: UsersCollection,
+      userPoolId: env.USER_POOL_ID,
+      poolRegion: env.POOL_REGION
     }),
     new ApolloSecurityBundle(),
     new XBundle({

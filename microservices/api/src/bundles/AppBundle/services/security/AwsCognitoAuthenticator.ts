@@ -16,7 +16,7 @@ export class AwsCognitoAuthenticator extends PassportAuthenticator {
           try {
             if (err || !user) {
               console.log("An error occurred", err)
-              return next(err);
+              return next(JSON.stringify(err));
             }
             return res.json(user);
 
@@ -37,7 +37,6 @@ export class AwsCognitoAuthenticator extends PassportAuthenticator {
 
   createStrategy() {
     globalAny.fetch = fetch
-    console.log({xx:env.USER_POOL_ID})
     const poolData = {
       UserPoolId: env.USER_POOL_ID,
       ClientId: env.CLIENT_ID
@@ -62,7 +61,6 @@ export class AwsCognitoAuthenticator extends PassportAuthenticator {
           var cognitoUser = new CognitoUser(userData);
           cognitoUser.authenticateUser(authenticationDetails, {
             onSuccess: function (result) {
-              console.log(result);
               var accessToken = result.getAccessToken().getJwtToken();
               var refreshToken = result.getRefreshToken().getToken();
               var idToken = result.getIdToken().getJwtToken();
