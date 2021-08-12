@@ -2,7 +2,7 @@ import { Kernel } from "@kaviar/core";
 import { ApolloBundle } from "@kaviar/apollo-bundle";
 import { MongoBundle } from "@kaviar/mongo-bundle";
 import { SecurityBundle } from "@kaviar/security-bundle";
-import { SecurityMongoBundle } from "@kaviar/security-cognito-bundle";
+import { SecurityCognitoBundle } from "@kaviar/security-cognito-bundle";
 import { LoggerBundle } from "@kaviar/logger-bundle";
 import { XBundle } from "@kaviar/x-bundle";
 import { ApolloSecurityBundle } from "@kaviar/apollo-security-bundle";
@@ -38,7 +38,7 @@ export const kernel = new Kernel({
     new SecurityBundle({
       "permissionTree": PermissionTree
     }),
-    new SecurityMongoBundle({
+    new SecurityCognitoBundle({
       usersCollection: UsersCollection,
       userPoolId: env.USER_POOL_ID,
       poolRegion: env.POOL_REGION
